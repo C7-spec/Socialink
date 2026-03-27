@@ -1,138 +1,150 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socialink</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome pour icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* ====== RESET ====== */
-        * { margin:0; padding:0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
-        body { line-height: 1.6; color:#333; }
-
-        /* ====== NAVBAR ====== */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 50px; background-color: #1E90FF; color: #fff; position: sticky; top:0; z-index:1000;
-        }
-        nav .logo img { height:50px; }
-        nav ul { list-style: none; display:flex; gap:20px; }
-        nav ul li a { color:#fff; font-weight:600; }
-        nav ul li a:hover { text-decoration: underline; }
-
-        /* ====== HERO ====== */
-        .hero {
-            height: 100vh; display:flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(rgba(30,144,255,0.7), rgba(30,144,255,0.7)), url('https://source.unsplash.com/1600x900/?community') center/cover no-repeat;
-            color: #fff; text-align: center; padding: 0 20px;
-        }
-        .hero h1 { font-size:3rem; margin-bottom:20px; }
-        .hero p { font-size:1.2rem; margin-bottom:30px; }
-        .hero a { padding:12px 30px; background:#ffc107; color:#333; font-weight:700; border-radius:5px; transition: 0.3s; }
-        .hero a:hover { background:#e0a800; }
-
-        /* ====== SECTION ====== */
-        section { padding:80px 20px; max-width:1200px; margin:0 auto; }
-        h2 { text-align:center; font-size:2.2rem; margin-bottom:40px; color:#1E90FF; }
-
-        /* À propos */
-        .about p { max-width:800px; margin:0 auto; text-align:center; font-size:1.1rem; }
-
-        /* Services */
-        .services { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:30px; }
-        .service-box { background:#f4f4f4; padding:30px; border-radius:10px; text-align:center; transition: transform 0.3s, box-shadow 0.3s; }
-        .service-box:hover { transform: translateY(-10px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
-        .service-box i { font-size:2.5rem; margin-bottom:15px; color:#1E90FF; }
-        .service-box h3 { margin-bottom:15px; font-size:1.3rem; }
-
-        /* Contact */
-        .contact form { max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
-        .contact input, .contact textarea { padding:15px; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
-        .contact button { padding:15px; border:none; border-radius:5px; background:#1E90FF; color:#fff; font-weight:700; cursor:pointer; transition:0.3s; }
-        .contact button:hover { background:#0c63c7; }
-
-        /* Footer */
-        footer { background:#333; color:#fff; text-align:center; padding:20px; margin-top:50px; }
-
-        /* Responsive */
-        @media(max-width:768px){
-            nav { flex-direction: column; gap:10px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Socialink</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; scroll-behavior:smooth; }
+    body { line-height:1.6; color:#333; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background-color:#1E90FF; color:#fff; position:sticky; top:0; z-index:1000; }
+    nav .logo img { height:50px; }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li a { color:#fff; font-weight:600; }
+    nav ul li a:hover { text-decoration: underline; }
+    .hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+        background: linear-gradient(rgba(30,144,255,0.7), rgba(30,144,255,0.7)), url('https://source.unsplash.com/1600x900/?community') center/cover no-repeat;
+        color:#fff; text-align:center; padding:0 20px; }
+    .hero h1 { font-size:3rem; margin-bottom:20px; }
+    .hero p { font-size:1.2rem; margin-bottom:30px; }
+    .hero a { padding:12px 30px; background:#ffc107; color:#333; font-weight:700; border-radius:5px; transition:0.3s; }
+    .hero a:hover { background:#e0a800; }
+    section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+    h2 { text-align:center; font-size:2.2rem; margin-bottom:40px; color:#1E90FF; }
+    .about p, .about ul { max-width:800px; margin:0 auto; font-size:1.1rem; margin-bottom:20px; }
+    .about ul { list-style-type: disc; padding-left:20px; }
+    .services { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:30px; }
+    .service-box { background:#f4f4f4; padding:30px; border-radius:10px; text-align:center; transition: transform 0.3s, box-shadow 0.3s; }
+    .service-box:hover { transform:translateY(-10px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+    .service-box i { font-size:2.5rem; margin-bottom:15px; color:#1E90FF; }
+    .service-box h3 { margin-bottom:15px; font-size:1.3rem; }
+    .contact form { max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
+    .contact input, .contact textarea { padding:15px; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
+    .contact button { padding:15px; border:none; border-radius:5px; background:#25D366; color:#fff; font-weight:700; cursor:pointer; transition:0.3s; }
+    .contact button:hover { background:#128C7E; }
+    footer { background:#333; color:#fff; text-align:center; padding:20px; margin-top:50px; }
+    footer a { color:#fff; margin:0 10px; font-size:1.5rem; transition:0.3s; }
+    footer a:hover { color:#1E90FF; }
+    @media(max-width:768px){ nav { flex-direction: column; gap:10px; } }
+</style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo">
-            <!-- Mets ici le chemin de ton logo -->
-            <img src="logo.png" alt="Socialink Logo">
-        </div>
-        <ul>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- HERO -->
-    <div class="hero">
-        <h1>Connectons la communauté et les individus</h1>
-        <p>Nous aidons les étudiants, jeunes et organisations à mieux comprendre les réalités sociales et à trouver des solutions concrètes.</p>
-        <a href="#about">En savoir plus</a>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        <img src="logo.png" alt="Socialink Logo">
     </div>
+    <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- À propos -->
-    <section id="about" class="about">
-        <h2>À propos de Socialink</h2>
-        <p>Socialink est une plateforme qui relie les individus, la communauté et les institutions. Nous croyons en un impact social positif à travers le coaching, l’accompagnement psychosocial et les études sociales. Notre mission est d’accompagner chaque acteur de la société à trouver des solutions concrètes aux défis sociaux.</p>
-    </section>
+<!-- HERO -->
+<div class="hero" data-aos="fade-down">
+    <h1>Connectons la communauté et les individus</h1>
+    <p>Nous aidons les étudiants, jeunes et organisations à mieux comprendre les réalités sociales et à trouver des solutions concrètes.</p>
+    <a href="#about">En savoir plus</a>
+</div>
 
-    <!-- Services -->
-    <section id="services" class="services-section">
-        <h2>Nos Services</h2>
-        <div class="services">
-            <div class="service-box">
-                <i class="fas fa-users"></i>
-                <h3>Coaching social</h3>
-                <p>Accompagnement personnalisé pour améliorer les compétences sociales et professionnelles.</p>
-            </div>
-            <div class="service-box">
-                <i class="fas fa-hands-helping"></i>
-                <h3>Accompagnement psychosocial</h3>
-                <p>Support et conseils pour le bien-être émotionnel et social.</p>
-            </div>
-            <div class="service-box">
-                <i class="fas fa-chart-line"></i>
-                <h3>Études sociales</h3>
-                <p>Analyse et recherche pour mieux comprendre les besoins des communautés.</p>
-            </div>
-            <div class="service-box">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Événements éducatifs</h3>
-                <p>Organisation d’ateliers, conférences et formations pour tous.</p>
-            </div>
+<!-- À propos -->
+<section id="about" class="about" data-aos="fade-up">
+    <h2>À propos de Socialink</h2>
+    <p>Socialink est une plateforme qui relie les individus, la communauté et les institutions. Notre mission est de promouvoir le bien-être social, la collaboration et l’innovation dans la société. Nous croyons que chaque individu a le pouvoir de contribuer positivement à sa communauté.</p>
+    
+    <h3>Objectifs :</h3>
+    <ul>
+        <li>Favoriser la communication et le lien social entre individus et institutions.</li>
+        <li>Offrir un accompagnement psychosocial aux jeunes et aux organisations.</li>
+        <li>Conduire des études sociales pour comprendre les réalités de la société.</li>
+        <li>Organiser des événements éducatifs et des formations pour sensibiliser la population.</li>
+    </ul>
+
+    <h3>Importance pour la société :</h3>
+    <ul>
+        <li>Renforcer la cohésion sociale et la solidarité.</li>
+        <li>Permettre aux jeunes de développer des compétences sociales et professionnelles.</li>
+        <li>Améliorer l'accès à l'information et aux ressources communautaires.</li>
+        <li>Contribuer à des solutions concrètes pour les défis sociaux locaux.</li>
+    </ul>
+</section>
+
+<!-- Services -->
+<section id="services" class="services-section">
+    <h2 data-aos="fade-up">Nos Services</h2>
+    <div class="services">
+        <div class="service-box" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-users"></i>
+            <h3>Coaching social</h3>
+            <p>Accompagnement personnalisé pour améliorer les compétences sociales et professionnelles.</p>
         </div>
-    </section>
+        <div class="service-box" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-hands-helping"></i>
+            <h3>Accompagnement psychosocial</h3>
+            <p>Support et conseils pour le bien-être émotionnel et social.</p>
+        </div>
+        <div class="service-box" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-chart-line"></i>
+            <h3>Études sociales</h3>
+            <p>Analyse et recherche pour mieux comprendre les besoins des communautés.</p>
+        </div>
+        <div class="service-box" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Événements éducatifs</h3>
+            <p>Organisation d’ateliers, conférences et formations pour tous.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Contactez-nous</h2>
-        <form>
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre email" required>
-            <textarea rows="5" placeholder="Votre message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
+<!-- Contact -->
+<section id="contact" class="contact" data-aos="fade-up">
+    <h2>Contactez-nous via WhatsApp</h2>
+    <form onsubmit="sendWhatsApp(event)">
+        <input type="text" id="name" placeholder="Votre nom" required>
+        <input type="email" id="email" placeholder="Votre email" required>
+        <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer sur WhatsApp</button>
+    </form>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2026 Socialink. Tous droits réservés.
-    </footer>
+<!-- Footer -->
+<footer data-aos="fade-up">
+    &copy; 2026 Socialink. Tous droits réservés. <br>
+    <a href="https://www.instagram.com/socia_link8?igsh=MWduajNtYWs1dmJ6ZA==" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@socialink8?_r=1&_t=ZS-952ELsbyx8y" target="_blank"><i class="fab fa-tiktok"></i></a>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({ duration:1000, once:true });
+function sendWhatsApp(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const phoneNumber = "237622181479";
+    const text = `Bonjour, je suis ${name} (${email}). Message: ${message}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
